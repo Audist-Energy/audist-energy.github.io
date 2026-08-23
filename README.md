@@ -1,6 +1,6 @@
-# Audist V3.1 isolated preview
+# Audist V3.2 isolated preview
 
-This public repository hosts a field-test preview copied from `quaintpelican/energy-audit-app` branch `audist-v3.1-reliability`.
+This public repository hosts a field-test preview copied from `quaintpelican/energy-audit-app` branch `audist-v3.2-system-coverage` at commit `1942dfb0b9290645781eb936053fee1b336ccb2b`.
 
 Preview URL: https://audist-energy.github.io/
 
