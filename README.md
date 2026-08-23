@@ -1,6 +1,6 @@
-# Audist V6.1 isolated preview
+# Audist V6.2 isolated preview
 
-This public repository hosts the V6.1 AI-assisted engineering review release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.1-ai-engineering-review`, commit `431a9f6`.
+This public repository hosts the V6.2 ASHRAE Level 2 report-engine release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.2-level2-report-engine`, commit `49c5c2b`.
 
 Preview URL: https://audist-energy.github.io/
 
