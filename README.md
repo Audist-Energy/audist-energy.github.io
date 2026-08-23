@@ -1,6 +1,6 @@
-# Audist V5.0 isolated preview
+# Audist V5.1 isolated preview
 
-This public repository hosts the V5.0 utility-analysis and energy-baseline release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.0-utility-baseline`, commit `a8df076`.
+This public repository hosts the V5.1 end-use and whole-building reconciliation release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.1-end-use-reconciliation`, commit `1444256`.
 
 Preview URL: https://audist-energy.github.io/
 
