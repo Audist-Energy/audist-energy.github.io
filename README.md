@@ -1,6 +1,6 @@
-# Audist V4.3 isolated preview
+# Audist V5.0 isolated preview
 
-This public repository hosts the V4.3 professional audit-package export release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v4.3-professional-export`, commit `8cea9ea`.
+This public repository hosts the V5.0 utility-analysis and energy-baseline release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.0-utility-baseline`, commit `a8df076`.
 
 Preview URL: https://audist-energy.github.io/
 
