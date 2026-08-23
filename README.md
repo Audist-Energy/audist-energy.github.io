@@ -1,6 +1,6 @@
-# Audist V5.3 isolated preview
+# Audist V6.0 isolated preview
 
-This public repository hosts the V5.3 advanced calculations and controls release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.3-advanced-calculations`, commit `b5bd5d1`.
+This public repository hosts the V6.0 deterministic audit QA/QC release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.0-audit-qaqc`, commit `c0ee59a`.
 
 Preview URL: https://audist-energy.github.io/
 
