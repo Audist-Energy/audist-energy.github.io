@@ -1,6 +1,6 @@
-# Audist V3.3 isolated preview
+# Audist V4.2 isolated preview
 
-This public repository hosts a field-test preview copied from `quaintpelican/energy-audit-app` branch `audist-v3.3-field-ux`.
+This public repository hosts the V4.2 field/analysis workflow release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v4.2-analysis-workflow`, commit `b8a591a`.
 
 Preview URL: https://audist-energy.github.io/
 
