@@ -1,6 +1,6 @@
-# Audist V6.0 isolated preview
+# Audist V6.1 isolated preview
 
-This public repository hosts the V6.0 deterministic audit QA/QC release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.0-audit-qaqc`, commit `c0ee59a`.
+This public repository hosts the V6.1 AI-assisted engineering review release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.1-ai-engineering-review`, commit `431a9f6`.
 
 Preview URL: https://audist-energy.github.io/
 
