@@ -1,6 +1,6 @@
-# Audist V5.2 isolated preview
+# Audist V5.3 isolated preview
 
-This public repository hosts the V5.2 ECM portfolio and interaction analysis release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.2-ecm-portfolio`, commit `7fc375d`.
+This public repository hosts the V5.3 advanced calculations and controls release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.3-advanced-calculations`, commit `b5bd5d1`.
 
 Preview URL: https://audist-energy.github.io/
 
