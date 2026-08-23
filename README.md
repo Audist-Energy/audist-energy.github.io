@@ -1,6 +1,6 @@
-# Audist V5.1 isolated preview
+# Audist V5.2 isolated preview
 
-This public repository hosts the V5.1 end-use and whole-building reconciliation release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.1-end-use-reconciliation`, commit `1444256`.
+This public repository hosts the V5.2 ECM portfolio and interaction analysis release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v5.2-ecm-portfolio`, commit `7fc375d`.
 
 Preview URL: https://audist-energy.github.io/
 
