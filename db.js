@@ -31,7 +31,7 @@ function openDB(){
     req.onblocked = ()=>{
       blocked=true;
       dbPromise=null;
-      reject(new Error("Database upgrade blocked. Close other Audist tabs and reopen the app."));
+      reject(new Error("Database upgrade blocked. Close other Falcon Pro tabs and reopen the app."));
     };
     req.onsuccess = ()=>{
       const db=req.result;

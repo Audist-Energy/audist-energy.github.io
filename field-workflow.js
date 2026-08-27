@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistFieldWorkflow=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
+(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProFieldWorkflow=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
 "use strict";
 const VERSION="6.3",EXTRACTION_SCHEMA_VERSION=1,HISTORY_STATUSES=["NOT_REQUESTED","REQUESTED","RECEIVED","PARTIAL","NOT_AVAILABLE"],FLAG_SOURCES=["USER_FLAGGED","RULE_SUGGESTED","AI_SUGGESTED"],FLAG_STATUSES=["IDENTIFIED","REVIEWED","CONVERTED_TO_ECM","REJECTED","DEFERRED"];
 const REFRIGERATION_SUBTYPES=["Reach-In Refrigerator","Reach-In Freezer","Glass-Door Merchandiser","Open Merchandiser","Walk-In Cooler","Walk-In Freezer","Compressor Rack","Condensing Unit","Evaporator","Remote Condenser","Ice Machine","Refrigerated Prep Table","Display Case","Pharmacy / Medical Refrigerator","Other Refrigeration","Reach-in","Walk-in","Condenser"];

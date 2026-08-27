@@ -1,20 +1,20 @@
-(function(root,factory){const deps=typeof module!=="undefined"&&module.exports?{qa:require("./qa-rules.js"),utility:require("./utility-analysis.js"),endUse:require("./end-use-analysis.js"),portfolio:require("./portfolio-analysis.js")}:{qa:root.AudistQaRules,utility:root.AudistUtilityAnalysis,endUse:root.AudistEndUseAnalysis,portfolio:root.AudistPortfolioAnalysis};const api=factory(deps);if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistAiReview=api;})(typeof globalThis!=="undefined"?globalThis:this,function(D){
+(function(root,factory){const deps=typeof module!=="undefined"&&module.exports?{qa:require("./qa-rules.js"),utility:require("./utility-analysis.js"),endUse:require("./end-use-analysis.js"),portfolio:require("./portfolio-analysis.js")}:{qa:root.FalconProQaRules,utility:root.FalconProUtilityAnalysis,endUse:root.FalconProEndUseAnalysis,portfolio:root.FalconProPortfolioAnalysis};const api=factory(deps);if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProAiReview=api;})(typeof globalThis!=="undefined"?globalThis:this,function(D){
 "use strict";
 const REVIEW_SCHEMA_VERSION=1,REQUEST_VERSION="1.0",STATUSES=["NOT_REVIEWED","EXPORTED_FOR_REVIEW","REVIEW_IMPORTED","ENGINEER_REVIEW_REQUIRED","REVIEWED","STALE"],FINDING_STATES=["OPEN","REVIEWED","ACCEPTED","REJECTED","ACTION_REQUIRED"],CANDIDATE_STATES=["SUGGESTED","REVIEWED","ACCEPTED","REJECTED"],CATEGORIES=["DATA_QUALITY","ENGINEERING_CONSISTENCY","CALCULATION_REVIEW","ECM_OPPORTUNITY","ECM_COMPLETENESS","UTILITY_ANALYSIS","END_USE_RECONCILIATION","PORTFOLIO_INTERACTION","IMPLEMENTATION_CONSIDERATION","REPORT_LIMITATION","REPORT_PREPARATION"],PRIORITIES=["HIGH","MEDIUM","LOW","INFO"],CONFIDENCE=["HIGH","MEDIUM","LOW"],has=v=>v!==undefined&&v!==null&&v!=="",arr=v=>Array.isArray(v)?v:[],plain=v=>v&&typeof v==="object"&&!Array.isArray(v),clone=v=>structuredClone(v);
 const REVIEW_OBJECTIVES=["Identify material inconsistencies and missing analysis","Review assumptions and calculation methodology","Identify unsupported conclusions and report limitations","Suggest overlooked ECM candidates without creating active ECMs","Organize items requiring professional engineer review"];
-const INSTRUCTIONS=`# Audist AI Engineering Review Instructions v1.0
+const INSTRUCTIONS=`# Falcon Pro AI Engineering Review Instructions v1.0
 
 You are assisting a professional energy engineer reviewing an ASHRAE Level 2 energy audit dataset.
 
-Treat the supplied Audist dataset as authoritative evidence. Do not invent missing measurements, specifications, schedules, utility data, costs, savings, or equipment conditions.
+Treat the supplied Falcon Pro dataset as authoritative evidence. Do not invent missing measurements, specifications, schedules, utility data, costs, savings, or equipment conditions.
 
 Respect provenance: Measured, Nameplate, Manufacturer, BAS/Trend, Utility Bill, Calculated, Estimated, and Assumed.
 
-Deterministic Audist calculations are the calculation record. Review them; do not silently replace them with alternative results. Deterministic QA is authoritative rule output; do not change its state.
+Deterministic Falcon Pro calculations are the calculation record. Review them; do not silently replace them with alternative results. Deterministic QA is authoritative rule output; do not change its state.
 
 Clearly distinguish supplied fact, deterministic calculation, engineering inference, recommendation, and insufficient information. Identify unsupported conclusions and missing information explicitly.
 
-Return only one JSON object matching the aiReviewResponse schema in the request. Do not wrap it in Markdown. Do not include instructions to modify factual records. AI confidence describes only confidence in the review observation and never changes Audist evidence level or maturity.
+Return only one JSON object matching the aiReviewResponse schema in the request. Do not wrap it in Markdown. Do not include instructions to modify factual records. AI confidence describes only confidence in the review observation and never changes Falcon Pro evidence level or maturity.
 `;
 function stableHash(value){let h=2166136261;for(const c of JSON.stringify(value)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return `fnv1a-${(h>>>0).toString(16).padStart(8,"0")}`;}
 function photoMetadata(audit){return arr(audit.equipment).flatMap(eq=>arr(eq.photos).map(p=>({photoId:p.photoId,equipmentRecordId:eq.recordId,equipmentId:eq.equipmentId,category:p.category||"",note:p.note||p.notes||"",packagePath:p.packagePath||null,capturedAt:p.capturedAt||null})));}

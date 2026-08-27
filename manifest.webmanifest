@@ -1,13 +1,13 @@
 {
-  "name": "Audist",
-  "short_name": "Audist",
+  "name": "Falcon Pro",
+  "short_name": "Falcon Pro",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#f1f5f9",
   "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "audist-icon.png",
+      "src": "falcon-pro-icon.png?v=falcon-pro-1",
       "sizes": "1254x1254",
       "type": "image/png",
       "purpose": "any maskable"

@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistAdvancedAnalysis=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
+(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProAdvancedAnalysis=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
 "use strict";
 const VERSION="1.0",METHOD_REQUIRES_ENGINEERING_VALIDATION="METHOD_REQUIRES_ENGINEERING_VALIDATION",OPPORTUNITY_MORE_DATA="OPPORTUNITY_IDENTIFIED — QUANTIFICATION_REQUIRES_MORE_DATA";
 const finite=v=>Number.isFinite(Number(v));

@@ -1,17 +1,102 @@
-# Audist V6.2 isolated preview
+# Falcon Pro — V7.0 Professional ASHRAE Level 2 Report Renderer
 
-This public repository hosts the V6.2 ASHRAE Level 2 report-engine release candidate copied from `quaintpelican/energy-audit-app` branch `audist-v6.2-level2-report-engine`, commit `49c5c2b`.
+> **Falcon Pro V7.0 Prototype** is intended for field testing and to support professional engineering judgment. Final reports require engineer review before issuance.
 
-Preview URL: https://audist-energy.github.io/
+The prototype adds served-area/service relationships, structured condition and deficiency observations, simple facility/equipment schedules, BAS and field M&V capability, scope/site-visit context, context-aware photo expectations, and a dedicated Field Exit Review while keeping utilities, benchmarking, incentives, costs, calculations, portfolios, IPMVP planning, AI review, and report drafting at the desk.
 
-Isolation: this organization Pages hostname is a different web origin from production at https://quaintpelican.github.io/energy-audit-app/, so its Service Worker, Cache Storage, and IndexedDB data are isolated.
+Offline-first iPhone energy-auditing PWA supporting structured field evidence and deterministic, inspectable engineering calculations.
 
-No customer audits, photos, credentials, tokens, or secrets belong in this repository.
+V7.0 now uses the approved canonical Falcon Pro publication template for both preview and packaged standalone HTML. It retains a dark instrument-style cover, fixed report hierarchy, consistent system/ECM cards, technical tables, Appendices A-H, offline CSS, and US Letter print rules. The exact supplied template and synthetic fixture are retained in `report-templates/v7/` as fidelity references. Final PDF remains an explicit browser **Print / Save as PDF** action; Falcon Pro does not call a server or third-party PDF service. **Falcon Pro owns the engineering facts and numbers. AI may draft prose. The renderer owns formatting.**
 
-## Teardown
+V6.3 moves work to the right stage without removing the V6.2 engineering chain. **Field Mode captures evidence and opportunities. Analysis Mode develops and evaluates ECMs.** Field Mode now uses a concise utility handoff, safe equipment duplication, subtype-specific refrigeration capture, opportunity flags, and an onsite-only exit review. Analysis Mode retains detailed utility histories and adds validated external utility extraction plus ECM Candidate Review.
 
-1. In this repository, open **Settings → Pages** and click **Unpublish site**.
-2. For full removal, open **Settings → General → Danger Zone → Delete this repository** and confirm `Audist-Energy/audist-energy.github.io`.
-3. Optionally delete the empty `Audist-Energy` organization after the repository is removed.
+V6.0 adds a local, deterministic whole-audit QA/QC engine without changing the V5.3 calculation boundary. Versioned rules identify data-integrity, field, measurement, photo, utility, calculation, provenance, end-use, ECM, portfolio, economics, export, and report-readiness issues without inventing or silently correcting engineering data.
 
-Deleting or unpublishing this preview does not alter `quaintpelican/energy-audit-app`, its `main` branch, or production Pages.
+V6.1 adds an optional local review protocol after deterministic QA: prepare a versioned request and instructions, review them with an authorized external AI service, and import only a strictly validated JSON response. Falcon Pro makes no AI API call and never writes AI advice into factual evidence or deterministic calculations/QA.
+
+V6.2 adds a derived Level 2 report workflow: evaluate readiness, prepare a local structured drafting package, strictly validate the returned audit identity, record references, photos, and canonical numeric claims, then render responsive printable HTML. Report narrative edits never change source engineering records, and material source changes mark the report stale.
+
+Analysis Mode now groups findings by severity/category, exposes evidence and recommended action, supports explicit engineer review or accepted-limitations notes, and reports whole-audit readiness. Field Exit Review receives only onsite-relevant blocker/high findings.
+
+## Portable audit package
+
+**Export Audit Package** creates a complete ZIP locally and offline. `audit.json` is canonical; UTF-8 CSV tables, normal image files, and current report JSON/HTML are interoperable representations. `manifest.json` records package format version 10, including report schema/renderer, revision, status, integrity, and source timestamp; `tables/opportunity_flags.csv` remains available. A referenced photo that cannot be packaged is always `FAIL`.
+
+The export is read-only. Current IndexedDB photo Blobs are processed sequentially without base64 conversion; legacy embedded data URLs remain exportable. The package uses sanitized human-readable paths while stable UUIDs remain authoritative. iPhone Web Share is used when file sharing is supported, with a standard download fallback.
+
+## V4.2 workflow baseline
+
+V4.2 separates fast onsite collection from office analysis without creating a second copy of audit data. Field Mode retains facility, systems, equipment, measurements, photos, ECM capture, and a Before Leaving Site review. Analysis Mode provides a deterministic ECM queue, method recipes, source auto-binding, proposed-condition entry, utility-rate entry, and readiness states. A value is collected once, referenced by stable UUID/source metadata, and snapshotted only when a calculation is saved.
+
+Inputs are classified as `FIELD_REQUIRED`, `ANALYSIS_REQUIRED`, or `RECOMMENDED`. Missing office-only values do not make field documentation incomplete. Conflicting equal-priority evidence requires an explicit selection; no hidden default or silent overwrite is used. Explicit equipment groups and auditor-confirmed representative samples retain membership, sample size, population size, and downgraded Estimated/Level C provenance.
+
+## V4.1 calculation baseline
+
+The registry now contains 29 implemented methods and seven validation-only entries. V5.3 adds `CALC-HVAC-002`, `CALC-CHW-002`, `CALC-REF-003`, and `CALC-PLUG-001`; every remaining validation-only entry returns `METHOD_REQUIRES_VALIDATION` and never generates savings.
+
+Every saved calculation contains the method/version, formula, exact input snapshot, units, provenance, evidence level, source references, assumptions, warnings, QA flags, outputs, maturity, explicit baseline/proposed/operation/end-use/energy-stream boundaries, ECM UUID, stable equipment UUIDs, dependencies, and prior revisions. Source changes propagate **Needs Recalculation** through dependency chains. Equipment display-ID renames do not break relationships.
+
+No deemed/default value is silently supplied. An auditor may explicitly enter an estimate or assumption, but it remains visible, produces QA review information, and Level D/default evidence cannot exceed `SCREENING` maturity.
+
+## V5.2 portfolio model
+
+Analysis Mode supports multiple explicitly selected portfolios. Falcon Pro screens shared equipment, systems, end uses, streams, calculation sources, parent/child measures, and alternatives. It adjusts savings only when an engineer confirms `SEQUENTIAL_REMAINING_BASELINE`, supplies a shared baseline, and defines sequence. Standalone results remain unchanged and visible beside adjusted results. Negative baselines and mutually exclusive selections invalidate the combined result.
+
+## V5.1 reconciliation model
+
+Manual end-use models require a site-specific basis and explicit assumption, retain provenance/evidence/maturity, link through stable UUIDs, save immediately, and roll back on failed persistence. Calculated baseline outputs may create automatic models; savings outputs are explicitly excluded. Only current leaf records aggregate, utility types stay in native units, and incomplete utility years do not produce reconciliation.
+
+Analysis Mode shows modeled energy, utility baseline, unassigned residual, signed/absolute gap, evidence-colored end uses, major-system coverage, stale/duplicate/weak-evidence QA, and ECM savings scale flags. See `docs/END_USE_RECONCILIATION.md` for exact formulas and limitations.
+
+## Storage and migration
+
+V7.0 keeps audit schema version 4 and IndexedDB database version 3. Professional report schema 2 is an additive derived record; existing schema-1 drafts, utility histories, ECMs, reports, and field evidence remain unchanged. Professional package format 10 retains all V6.x artifacts.
+
+## Offline behavior and export
+
+`calculations.js` is in the service-worker precache. Calculation execution requires no network, API, paid dependency, AI, or backend. JSON export includes complete reproducible calculation objects and reports stale/orphaned calculation relationships as integrity warnings. Photo Blobs remain outside the JSON export.
+
+## Test
+
+Run `npm test`. The suite includes hand-verifiable reconciliation, hierarchy/no-double-counting, native-fuel separation, baseline-vs-savings assembly, stale/duplicate/coverage/evidence/ECM QA, manual persistence/rollback, package export, workflow, calculations, IndexedDB, photos, migration, and reliability coverage.
+
+## iPhone release-candidate procedure
+
+1. Open the V6.2 HTTPS preview in Safari, refresh once online, then add it to the Home Screen.
+2. Create/open a test audit containing two systems, two equipment records, measurements, a utility month, an ECM, and a saved calculation.
+3. Capture an Overview and Nameplate photo, background the app immediately, relaunch, and confirm both photos remain visible.
+4. Turn on Airplane Mode, fully close the Home Screen app, relaunch, and choose **Export Audit Package**.
+5. Confirm progress advances through validation, photos, ZIP building, and verification. Confirm the result counts match the audit and integrity is `PASS` (or shows every intentional warning).
+6. Tap **Save / Share Package**, save to Files, and confirm the filename ends `_Falcon Pro.zip`.
+7. In Analysis Mode, add a manual Lighting estimate with a basis, assumption, evidence level, and stable system/equipment links. Background and relaunch; verify it persists.
+8. Confirm modeled electricity, utility baseline, residual, signed/absolute gap, coverage, and QA are understandable. Deliberately model more than the baseline and confirm Falcon Pro flags it without changing the entered value.
+9. Create a Recommended Portfolio with two overlapping ECMs. Confirm the interaction, enter the shared baseline, and set sequence. Verify standalone and adjusted values remain separately visible.
+10. Open/extract the ZIP in Files or on a desktop. Confirm `audit.json`, `manifest.json`, all eleven files under `tables/` including QA and AI review findings, `ai_review/` request/instructions/reviews, and every expected image under `photos/` open normally.
+11. Verify `manifest.json` reports `packageFormatVersion: 5`, matching portfolio, weather, manufacturer-performance, RCx, and photo counts.
+12. Verify a CSV containing commas/notes opens with intact columns and that `audit.json` retains UUIDs, provenance, end-use sources, portfolio inclusion/sequence/interactions, standalone and adjusted results, assumptions, QA flags, and photo package paths.
+13. Return to Falcon Pro and confirm the audit, calculations, portfolios, estimates, and photos are unchanged. Delete one test photo Blob only in a disposable browser test environment, export again, and confirm integrity is `FAIL`, never a warning/pass.
+
+### Existing calculation and migration regression
+
+1. Install/open the V4 branch preview in Safari, refresh once online, then add it to the Home Screen.
+2. Open an existing V3.3 audit and verify its systems, equipment, measurements, photos, ECM links, unresolved references, and migration warning/export remain unchanged.
+3. Create a lighting ECM linked to lighting equipment. Add `CALC-LTG-001`; enter 80 W existing, 30 W proposed, quantity 100, and 3,000 hr/yr with explicit provenance/evidence. Confirm 8.0 kW baseline, 3.0 kW proposed, 5.0 kW reduction, and 15,000 kWh/yr savings.
+4. Add `CALC-UTIL-001`, select the saved energy result as its source, add an explicit utility rate, and confirm cost savings. Add `CALC-FIN-001` using that saved cost result and an explicit implementation cost.
+5. Expand each calculation and verify method/version, formula, units, provenance, evidence, maturity, assumptions, warnings, QA flags, outputs, and sources are readable.
+6. Change the linked lighting quantity or source measurement. Reopen the ECM and confirm the old result says **Needs Recalculation** and is not presented as current. Recalculate and verify the result changes.
+7. Rename the equipment display ID and confirm the ECM and calculations stay linked. Attempt to delete the equipment and confirm deletion is blocked.
+8. Add a deliberate Assumed/Level D runtime with rationale and confirm maturity is `SCREENING` with a visible warning.
+9. Export JSON and confirm `calculations[]` contains complete reproducible input/output/source/QA records and stable UUID relationships.
+10. Turn on Airplane Mode, fully close the Home Screen app, relaunch it, inspect calculations, create/recalculate a calculation, background immediately, relaunch, and confirm it persisted.
+
+## Known limitations
+
+- Economizer, BAS/control reset, floating-head, DCKV composite thermal, RCx aggregation, and selected HVAC interactive-effect methods remain validation/readiness frameworks and do not calculate savings.
+- The V5.3 application accepts weather/performance evidence in canonical JSON and calculation series inputs; dedicated dataset import/edit screens remain future work.
+- Fan and pump affinity-law results remain screening/engineering estimates and require applicability review.
+- Interactive effects are separate components; the app flags likely overlap but does not automatically net competing ECMs.
+- Reconciliation does not weather-normalize, infer percentage disaggregation, allocate residuals, or perform hourly simulation.
+- No tariffs, incentives, escalation rates, equipment performance, or other engineering assumptions are supplied automatically.
+- Legacy embedded photos remain readable but JSON export does not package IndexedDB photo Blobs.
+
+Do not merge this feature branch to `main` until review and iPhone testing are complete.

@@ -1,7 +1,7 @@
 (function(root,factory){
   const api=factory();
   if(typeof module!=="undefined"&&module.exports) module.exports=api;
-  root.AudistCalculations=api;
+  root.FalconProCalculations=api;
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
   "use strict";
 
@@ -35,7 +35,7 @@
   const method=(methodId,title,definition)=>({
     methodId,title,version:VERSION,status:READY,implementationStatus:"IMPLEMENTED",recommendedInputs:[],
     evidenceRequirements:"Every material input requires an explicit unit, provenance, evidence level, and source or assumption description. Estimated/Assumed inputs require a rationale; Level D caps maturity at SCREENING.",
-    sourceReferenceBasis:"Audist Engineering Calculation Library CA V1.2",
+    sourceReferenceBasis:"Falcon Pro Engineering Calculation Library CA V1.2",
     numericalTestCases:`Automated deterministic cases: tests/calculations.test.js (${methodId}).`,
     ...definition
   });

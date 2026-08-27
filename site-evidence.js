@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistSiteEvidence=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
+(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProSiteEvidence=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
 "use strict";
 const VERSION="7.0",STATES=["PRESENT","NOT_PRESENT","UNKNOWN","NOT_INSPECTED","NOT_APPLICABLE"],CONDITIONS=["GOOD","FAIR","POOR","FAILED","NOT_ASSESSED"],SCHEDULE_TYPES=["SAME_AS_FACILITY","CONTINUOUS","CUSTOM","UNKNOWN"],OBSERVATION_TYPES=["OPERATIONAL","CONTROLS","MAINTENANCE","PHYSICAL_CONDITION","ENERGY_WASTE","INFORMATION_NEEDED","SAFETY_OR_CODE_OBSERVATION","OTHER"],SEVERITIES=["INFORMATIONAL","MINOR","MODERATE","SIGNIFICANT"];
 const arr=v=>Array.isArray(v)?v:[],object=v=>v&&typeof v==="object"&&!Array.isArray(v),clone=v=>JSON.parse(JSON.stringify(v??null)),text=v=>String(v??"").trim();

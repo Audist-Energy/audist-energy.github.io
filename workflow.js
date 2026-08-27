@@ -1,4 +1,4 @@
-(function(root,factory){const utility=typeof module!=="undefined"&&module.exports?require("./utility-analysis.js"):root.AudistUtilityAnalysis,api=factory(utility);if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistWorkflow=api;})(typeof globalThis!=="undefined"?globalThis:this,function(UTILITY_ANALYSIS){
+(function(root,factory){const utility=typeof module!=="undefined"&&module.exports?require("./utility-analysis.js"):root.FalconProUtilityAnalysis,api=factory(utility);if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProWorkflow=api;})(typeof globalThis!=="undefined"?globalThis:this,function(UTILITY_ANALYSIS){
 "use strict";
 const VERSION="1.0";
 const RECIPES=Object.freeze({

@@ -1,4 +1,4 @@
-(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.AudistUtilityAnalysis=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
+(function(root,factory){const api=factory();if(typeof module!=="undefined"&&module.exports)module.exports=api;root.FalconProUtilityAnalysis=api;})(typeof globalThis!=="undefined"?globalThis:this,function(){
 "use strict";
 const VERSION="1.0",ELECTRIC_KBTU_PER_KWH=3.412,GAS_KBTU_PER_THERM=100;
 const num=v=>v!==""&&v!==null&&v!==undefined&&Number.isFinite(Number(v))?Number(v):null;

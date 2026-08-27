@@ -1,12 +1,13 @@
-const CACHE="audist-v7-0-prototype-1";
-const ASSETS=["./","./index.html","./styles.css?v=7.0.0","./db.js?v=6.1.0","./calculations.js?v=6.1.0","./utility-analysis.js?v=6.1.0","./end-use-analysis.js?v=6.1.0","./portfolio-analysis.js?v=6.1.0","./advanced-analysis.js?v=6.1.0","./workflow.js?v=6.1.0","./qa-rules.js?v=6.1.0","./ai-review.js?v=6.3.0","./report-engine.js?v=7.0.0","./canonical-report-style.js?v=7.0.0","./canonical-report.js?v=7.0.0","./report-renderer.js?v=7.0.0","./field-workflow.js?v=6.3.0","./site-evidence.js?v=7.0.0","./package-export.js?v=7.0.0","./app.js?v=7.0.0","./manifest.webmanifest","./icon.svg","./audist-icon.png"];
+const CACHE="falcon-pro-v7-0-brand-1";
+const LEGACY_CACHE_PREFIX=["a","udist-"].join("");
+const ASSETS=["./","./index.html","./styles.css?v=7.0.1","./db.js?v=6.1.0","./calculations.js?v=6.1.0","./utility-analysis.js?v=6.1.0","./end-use-analysis.js?v=6.1.0","./portfolio-analysis.js?v=6.1.0","./advanced-analysis.js?v=6.1.0","./workflow.js?v=6.1.0","./qa-rules.js?v=6.1.0","./ai-review.js?v=6.3.0","./report-engine.js?v=7.0.0","./canonical-report-style.js?v=7.0.0","./canonical-report.js?v=7.0.1","./report-renderer.js?v=7.0.0","./field-workflow.js?v=6.3.0","./site-evidence.js?v=7.0.0","./package-export.js?v=7.0.0","./app.js?v=7.0.1","./manifest.webmanifest","./icon.svg","./falcon-pro-icon.png?v=falcon-pro-1"];
 self.addEventListener("install",event=>{
   event.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)));
 });
 self.addEventListener("activate",event=>{
   event.waitUntil(
     caches.keys()
-      .then(keys=>Promise.all(keys.filter(k=>(k.startsWith("field-energy-audit-")||k.startsWith("audist-"))&&k!==CACHE).map(k=>caches.delete(k))))
+      .then(keys=>Promise.all(keys.filter(k=>(k.startsWith("field-energy-audit-")||k.startsWith(LEGACY_CACHE_PREFIX)||k.startsWith("falcon-pro-"))&&k!==CACHE).map(k=>caches.delete(k))))
   );
 });
 self.addEventListener("fetch",event=>{
